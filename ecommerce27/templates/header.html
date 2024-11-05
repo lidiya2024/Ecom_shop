@@ -1,0 +1,61 @@
+{% load static %}
+    <title>Lidiya's Store</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f8f8;
+        }
+
+        .logo {
+            flex: 1;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        .search-bar {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'images/shop_symbol.jpeg' %}" alt="Your Site Logo">
+            </a>
+        </div>
+
+        <div class="search-bar">
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name="q" placeholder="Search products...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+</body>

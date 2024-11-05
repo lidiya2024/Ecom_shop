@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Delete Product</title>
+</head>
+<body>
+    <h2>Delete the Product</h2>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li style="color:green">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+        <p>Do you want to delete {{product.name}}</p>
+        <a href="{ url 'home' %}" class="btn btn-warning">Cancel</a>
+     <input type="submit"value="Delete Product" class="btn btn-danger"/>
+    </form>
+
+{% endblock %}

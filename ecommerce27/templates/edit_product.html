@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+    <h2>Edit the Product</h2>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li style="color:green">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+     <input type="submit"value="Edit Product" class="btn btn-secondary"/>
+    </form>
+
+{% endblock %}
